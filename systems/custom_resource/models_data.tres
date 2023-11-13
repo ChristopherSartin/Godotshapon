@@ -1,15 +1,15 @@
-[gd_resource type="Resource" script_class="ArrayVariable" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="ArrayVariable" load_steps=2 format=3 uid="uid://cgshv0c4xj0ea"]
 
 [ext_resource type="Script" path="res://systems/custom_resource/scripts/array_variable.gd" id="1_tmhav"]
 
 [resource]
 script = ExtResource("1_tmhav")
-value = [Object(Object,"script":Resource("res://systems/model_data_object.gd"),"name":"Unit Cube 4","description":"This was the first test object to be put into the Godotshapon models list! Look at it in all it's glory!","icon_path":"res://assets/models/007/3d_cube_icon.png","model_path":"res://assets/models/007/unit_cube.gltf","position":Vector3(2.08164e-12, 2.08164e-12, 0),"rotation":Vector3(45, 45, 45),"scale":Vector3(0.05, 0.05, 0.05))
-, Object(Object,"script":Resource("res://systems/model_data_object.gd"),"name":"Unit Cube 5","description":"This was the first test object to be put into the Godotshapon models list! Look at it in all it's glory!","icon_path":"res://assets/models/008/3d_cube_icon.png","model_path":"res://assets/models/008/unit_cube.gltf","position":Vector3(2.08164e-12, 2.08164e-12, 0),"rotation":Vector3(45, 45, 45),"scale":Vector3(0.05, 0.05, 0.05))
-, Object(Object,"script":Resource("res://systems/model_data_object.gd"),"name":"Goshapon Machine","description":"This is just a test description","icon_path":"res://assets/models/001/goshapon_icon.png","model_path":"res://assets/models/001/GoshaponMachine.gltf","position":Vector3(2.08164e-12, -0.024, 0.00205511),"rotation":Vector3(1.998e-14, -90, 1.998e-14),"scale":Vector3(0.4, 0.4, 0.4))
-, Object(Object,"script":Resource("res://systems/model_data_object.gd"),"name":"Unit Cube 3","description":"This was the first test object to be put into the Godotshapon models list! Look at it in all it's glory!","icon_path":"res://assets/models/006/3d_cube_icon.png","model_path":"res://assets/models/006/unit_cube.gltf","position":Vector3(2.08164e-12, 2.08164e-12, 0),"rotation":Vector3(45, 45, 45),"scale":Vector3(0.05, 0.05, 0.05))
-, Object(Object,"script":Resource("res://systems/model_data_object.gd"),"name":"Unit Cube","description":"This was the first test object to be put into the Godotshapon models list! Look at it in all it's glory!","icon_path":"res://assets/models/003/3d_cube_icon.png","model_path":"res://assets/models/003/unit_cube.gltf","position":Vector3(2.08164e-12, 2.08164e-12, 0),"rotation":Vector3(45, 45, 45),"scale":Vector3(0.05, 0.05, 0.05))
-, Object(Object,"script":Resource("res://systems/model_data_object.gd"),"name":"Christopher","description":"Christopher as a 3D model! It looks nothing like him...","icon_path":"res://assets/models/004/christopher_icon.png","model_path":"res://assets/models/004/Christopher.gltf","position":Vector3(2.08164e-12, -0.0269307, 0),"rotation":Vector3(1.998e-14, 1.998e-14, 1.998e-14),"scale":Vector3(0.03, 0.03, 0.03))
-, Object(Object,"script":Resource("res://systems/model_data_object.gd"),"name":"Unit Cube 2","description":"This was the first test object to be put into the Godotshapon models list! Look at it in all it's glory!","icon_path":"res://assets/models/005/3d_cube_icon.png","model_path":"res://assets/models/005/unit_cube.gltf","position":Vector3(2.08164e-12, 2.08164e-12, 0),"rotation":Vector3(45, 45, 45),"scale":Vector3(0.05, 0.05, 0.05))
-, Object(Object,"script":Resource("res://systems/model_data_object.gd"),"name":"Goshapon Capsule","description":"This is just a test description","icon_path":"res://assets/models/002/goshapon_capsule_icon.png","model_path":"res://assets/models/002/GoshaponCapsule.gltf","position":Vector3(2.08164e-12, 2.08164e-12, 2.08164e-12),"rotation":Vector3(1.998e-14, 1.998e-14, 1.998e-14),"scale":Vector3(1, 1, 1))
+value = [Object(Object,"script":Resource("res://systems/model_data_object.gd"))
+, Object(Object,"script":Resource("res://systems/model_data_object.gd"))
+, Object(Object,"script":Resource("res://systems/model_data_object.gd"))
+, Object(Object,"script":Resource("res://systems/model_data_object.gd"))
+, Object(Object,"script":Resource("res://systems/model_data_object.gd"))
+, Object(Object,"script":Resource("res://systems/model_data_object.gd"))
+, Object(Object,"script":Resource("res://systems/model_data_object.gd"))
+, Object(Object,"script":Resource("res://systems/model_data_object.gd"))
 ]
