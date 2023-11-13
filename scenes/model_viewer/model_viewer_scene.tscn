@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkk4bg8hjco5r"]
+
+[ext_resource type="PackedScene" uid="uid://banmpcuhfjgr3" path="res://prefabs/model_viewer/model_viewer.tscn" id="1_cq5aq"]
+[ext_resource type="PackedScene" uid="uid://chq8t8cx14ua5" path="res://ui/model_viewer.tscn" id="2_tik1x"]
+
+[node name="ModelViewerScene" type="Node3D"]
+
+[node name="ModelCamera" type="Camera3D" parent="."]
+fov = 60.0
+near = 0.01
+far = 10.0
+
+[node name="ModelViewer" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("1_cq5aq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, -0.15)
+camera = NodePath("../ModelCamera")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ModelViewer" parent="CanvasLayer" instance=ExtResource("2_tik1x")]
+
+[editable path="ModelViewer"]

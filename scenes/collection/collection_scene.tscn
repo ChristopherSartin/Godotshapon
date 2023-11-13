@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ch6cqtfiwtn3r"]
+
+[ext_resource type="PackedScene" uid="uid://cs0u05xrcbgen" path="res://ui/collection/collection.tscn" id="1_h0mtk"]
+
+[node name="CollectionScene" type="Node3D"]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Collection" parent="UI" instance=ExtResource("1_h0mtk")]
+metadata/_edit_use_anchors_ = true

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://banmpcuhfjgr3"]
+
+[ext_resource type="Script" path="res://prefabs/model_viewer/model_viewer.gd" id="1_lmjem"]
+
+[node name="ModelViewer" type="Node3D" node_paths=PackedStringArray("model_container")]
+script = ExtResource("1_lmjem")
+model_container = NodePath("ModelHolder")
+
+[node name="ModelHolder" type="Node3D" parent="."]

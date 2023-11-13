@@ -1,0 +1,398 @@
+[gd_scene load_steps=18 format=3 uid="uid://cian6nugogbsv"]
+
+[ext_resource type="PackedScene" uid="uid://coi2cr7gk2max" path="res://ui/gosha/gosha.tscn" id="1_ay73v"]
+[ext_resource type="Script" path="res://scenes/goshapon/gosha_scene_manager.gd" id="1_b3kax"]
+[ext_resource type="Resource" uid="uid://by5fsewdebbk4" path="res://systems/custom_resource/models_data.tres" id="2_2sdh8"]
+[ext_resource type="PackedScene" uid="uid://ce1srdgacj3jn" path="res://ui/model_preview/model_preview.tscn" id="2_gpqwq"]
+[ext_resource type="Resource" uid="uid://dm2105dedsdyp" path="res://systems/custom_resource/user_data_container.tres" id="3_k6fn8"]
+[ext_resource type="PackedScene" uid="uid://ympyp0fiq22l" path="res://prefabs/goshapon_capsule/goshapon_capsule.tscn" id="3_m5v6y"]
+[ext_resource type="AudioStream" uid="uid://di341girdpqrj" path="res://prefabs/goshapon_machine/dial_crank.wav" id="4_1edc4"]
+[ext_resource type="PackedScene" uid="uid://dfc7gylfon0ie" path="res://prefabs/goshapon_machine/goshapon_machine.tscn" id="4_sqqvo"]
+[ext_resource type="AudioStream" uid="uid://c3vfwon8sscno" path="res://prefabs/goshapon_capsule/capsule_shake.wav" id="5_bm4rd"]
+[ext_resource type="AudioStream" uid="uid://va6dwimf55uc" path="res://prefabs/goshapon_machine/machine_bounce.wav" id="5_y4uiw"]
+[ext_resource type="PackedScene" uid="uid://banmpcuhfjgr3" path="res://prefabs/model_viewer/model_viewer.tscn" id="6_7ulf7"]
+[ext_resource type="AudioStream" uid="uid://cf123awc0duus" path="res://prefabs/goshapon_machine/machine_impact.wav" id="6_qvy01"]
+[ext_resource type="AudioStream" uid="uid://dsdndwwlg4uya" path="res://prefabs/goshapon_capsule/capsule_pop.wav" id="6_uldd2"]
+[ext_resource type="AudioStream" uid="uid://brcdmlc3xpyyf" path="res://scenes/goshapon/congrats_music.mp3" id="7_urtax"]
+
+[sub_resource type="Animation" id="Animation_15b6p"]
+resource_name = "DispenseCutscene"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("World/ModelPreview:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("World/Cameras/DialView:current")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "position_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("World/Cameras/DialView")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0.018133, 0.0477473, 0.0765439, 0.9, 1, 0.0127946, 0.0477473, 0.0581473, 1.8, 1, 0.0127946, 0.0477473, 0.0581473, 2, 1, 0.0293097, 0.0477473, 0.115059)
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("World/Cameras/JumpView:current")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.8),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "animation"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("World/GoshaponMachine/AnimationPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": PackedStringArray("[stop]", "TurnDial", "Dispense"),
+"times": PackedFloat32Array(0, 0.6, 2.4)
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("UI/ModelPreview:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 6.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/6/type = "position_3d"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("World/GoshaponCapsule")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, -0.0127138, 0.0177216, 0.0149381, 3.8, 1, -0.0127138, 0.0177216, 0.0149381, 4.1, 1, 2.08165e-12, 0.213917, 0.250309)
+tracks/7/type = "scale_3d"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("World/GoshaponCapsule")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = PackedFloat32Array(0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12, 3.8, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12, 4.1, 1, 1, 1, 1)
+tracks/8/type = "animation"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("World/GoshaponCapsule/AnimationPlayer")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"clips": PackedStringArray("Open"),
+"times": PackedFloat32Array(4.4)
+}
+tracks/9/type = "rotation_3d"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("World/GoshaponCapsule")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = PackedFloat32Array(0, 1, 2.08165e-12, 0.707, 2.08165e-12, 0.707)
+tracks/10/type = "method"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("World/GoshaponCapsule/Armature/Skeleton3D")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"reset_bone_poses"
+}]
+}
+tracks/11/type = "scale_3d"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("World/ModelPreview")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = PackedFloat32Array(6.2, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12, 6.5, 1, 1, 1, 1)
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("UI/Gosha:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/13/type = "audio"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("System/SFXPlayer")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"clips": [{
+"end_offset": 4.731,
+"start_offset": 0.28,
+"stream": ExtResource("4_1edc4")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_y4uiw")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_qvy01")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_bm4rd")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_uldd2")
+}],
+"times": PackedFloat32Array(0.6, 2.8, 3.8, 5.2, 6.1)
+}
+tracks/13/use_blend = true
+tracks/14/type = "audio"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("System/MusicPlayer")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("7_urtax")
+}],
+"times": PackedFloat32Array(5.1)
+}
+tracks/14/use_blend = true
+
+[sub_resource type="Animation" id="Animation_suvui"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("World/Cameras/DialView:current")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("World/Cameras/JumpView:current")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("UI/ModelPreview:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("World/Cameras/FrontView:current")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "position_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("World/GoshaponCapsule")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, -0.0127138, 0.0177216, 0.0149381)
+tracks/5/type = "rotation_3d"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("World/GoshaponCapsule")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, 2.08165e-12, 0.707, 2.08165e-12, 0.707)
+tracks/6/type = "scale_3d"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("World/GoshaponCapsule")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("World/GoshaponCapsule/Armature/Skeleton3D")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"reset_bone_poses"
+}]
+}
+tracks/8/type = "scale_3d"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("World/ModelPreview")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("UI/Gosha:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uq4vq"]
+_data = {
+"DispenseCutscene": SubResource("Animation_15b6p"),
+"RESET": SubResource("Animation_suvui")
+}
+
+[node name="Root" type="Node3D" node_paths=PackedStringArray("main_camera", "director", "model_preview", "model_preview_ui", "gosha_ui")]
+transform = Transform3D(0.276661, -4.31669e-16, -0.960968, 3.48787e-16, 1, -3.48787e-16, 0.960968, -2.38677e-16, 0.276661, -0.00559004, 0, 0)
+script = ExtResource("1_b3kax")
+models_data = ExtResource("2_2sdh8")
+user_data = ExtResource("3_k6fn8")
+main_camera = NodePath("World/Cameras/FrontView")
+director = NodePath("System/Director")
+model_preview = NodePath("World/ModelPreview")
+model_preview_ui = NodePath("UI/ModelPreview")
+gosha_ui = NodePath("UI/Gosha")
+
+[node name="System" type="Node" parent="."]
+
+[node name="Director" type="AnimationPlayer" parent="System"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_uq4vq")
+}
+
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="System"]
+volume_db = -10.0
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="System"]
+volume_db = -10.0
+
+[node name="World" type="Node" parent="."]
+
+[node name="Cameras" type="Node" parent="World"]
+
+[node name="FrontView" type="Camera3D" parent="World/Cameras"]
+transform = Transform3D(1, -3.60959e-16, 3.48574e-16, 3.48574e-16, 0.999391, 0.0348995, -3.60959e-16, -0.0348995, 0.999391, 2.08165e-12, 0.0695065, 0.209621)
+current = true
+fov = 50.0
+near = 0.001
+far = 50.0
+
+[node name="DialView" type="Camera3D" parent="World/Cameras"]
+transform = Transform3D(0.964695, 0, 0.263368, 0, 1, 0, -0.263368, 0, 0.964695, 0.018133, 0.0477473, 0.0765439)
+near = 0.001
+far = 50.0
+
+[node name="JumpView" type="Camera3D" parent="World/Cameras"]
+transform = Transform3D(1, 0, 0, 0, 0.997754, 0.0669879, 0, -0.0669879, 0.997754, 0, 0.226945, 0.338848)
+near = 0.001
+far = 50.0
+
+[node name="GoshaponCapsule" parent="World" instance=ExtResource("3_m5v6y")]
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, -0.0127138, 0.0177216, 0.0149381)
+
+[node name="Skeleton3D" parent="World/GoshaponCapsule/Armature" index="0"]
+bones/0/position = Vector3(-0.00494181, -116.151, 4.52919)
+bones/0/rotation = Quaternion(0.99918, -1.06435e-16, -1.06387e-16, 0.0404847)
+bones/2/position = Vector3(-0.00267812, -115.793, -4.74651)
+bones/2/rotation = Quaternion(0.70025, 0.0982315, -0.70025, -0.0982315)
+
+[node name="Top" parent="World/GoshaponCapsule/Armature/Skeleton3D" index="0"]
+transform = Transform3D(44.8758, -9.15832e-15, -9.92732e-15, -9.93145e-15, -44.7287, -3.63059, -9.15384e-15, 3.63059, -44.7287, 0, -116.072, 4.52279)
+
+[node name="Bottom" parent="World/GoshaponCapsule/Armature/Skeleton3D" index="1"]
+transform = Transform3D(44.8758, -6.68702e-07, 1.06992e-05, 1.47193e-06, 43.1437, -12.3474, -5.14313e-06, 12.3474, 43.1437, 1.39698e-09, -115.859, -4.76544)
+
+[node name="Bottom" parent="World/GoshaponCapsule/Armature/Skeleton3D/Bottom" index="0"]
+transform = Transform3D(1, 1.62801e-23, -5.68434e-15, 3.21502e-23, 1, 3.21502e-23, -2.84217e-15, -2.0028e-23, 1, -0.0015385, 0, 0)
+
+[node name="GoshaponMachine" parent="World" instance=ExtResource("4_sqqvo")]
+transform = Transform3D(0.276661, -4.31669e-16, -0.960968, 3.48787e-16, 1, -3.48787e-16, 0.960968, -2.38677e-16, 0.276661, -0.00559004, 0, 0)
+
+[node name="Dial" parent="World/GoshaponMachine/Body" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0359249, 0.046938, -0.000106731)
+
+[node name="ModelPreview" parent="World" node_paths=PackedStringArray("camera") instance=ExtResource("6_7ulf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.221087, 0.252471)
+visible = false
+camera = NodePath("../Cameras/JumpView")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Gosha" parent="UI" instance=ExtResource("1_ay73v")]
+
+[node name="ModelPreview" parent="UI" instance=ExtResource("2_gpqwq")]
+visible = false
+offset_left = -1.0
+offset_right = -1.0
+
+[connection signal="button_down" from="UI/Gosha/MarginContainer/VBoxContainer/SlotButton" to="." method="collect_random_model"]
+[connection signal="button_down" from="UI/ModelPreview/MarginContainer/BackButton" to="." method="close_model_viewer"]
+
+[editable path="World/GoshaponCapsule"]
+[editable path="World/GoshaponMachine"]
+[editable path="UI/Gosha"]
+[editable path="UI/ModelPreview"]

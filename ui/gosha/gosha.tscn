@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://coi2cr7gk2max"]
+
+[ext_resource type="Script" path="res://systems/emit.gd" id="1_ouuir"]
+
+[node name="Gosha" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -260.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_constants/separation = 32
+
+[node name="CollectionButton" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Collection"
+script = ExtResource("1_ouuir")
+signal_name = "move_to_collection_scene"
+
+[node name="SlotButton" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Slots"
+
+[connection signal="button_down" from="MarginContainer/VBoxContainer/CollectionButton" to="MarginContainer/VBoxContainer/CollectionButton" method="emit"]

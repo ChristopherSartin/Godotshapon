@@ -1,0 +1,50 @@
+[gd_scene load_steps=10 format=3 uid="uid://re1788eb08ap"]
+
+[ext_resource type="Script" path="res://scenes/game_scene_manager.gd" id="1_1jvps"]
+[ext_resource type="PackedScene" uid="uid://c4icw8a5bpkng" path="res://ui/background/background.tscn" id="1_5m0vf"]
+[ext_resource type="PackedScene" uid="uid://bkk4bg8hjco5r" path="res://scenes/model_viewer/model_viewer_scene.tscn" id="6_ntjbn"]
+[ext_resource type="Resource" uid="uid://by5fsewdebbk4" path="res://systems/custom_resource/models_data.tres" id="6_sbflh"]
+[ext_resource type="PackedScene" uid="uid://ch6cqtfiwtn3r" path="res://scenes/collection/collection_scene.tscn" id="7_gcs4k"]
+[ext_resource type="Resource" uid="uid://dm2105dedsdyp" path="res://systems/custom_resource/user_data_container.tres" id="7_xareo"]
+[ext_resource type="Script" path="res://systems/data_loader.gd" id="8_716ix"]
+[ext_resource type="PackedScene" uid="uid://cian6nugogbsv" path="res://scenes/goshapon/gosha_scene.tscn" id="10_uyhf2"]
+
+[sub_resource type="Environment" id="Environment_fx71p"]
+background_mode = 3
+background_canvas_max_layer = -10
+ambient_light_source = 2
+ambient_light_color = Color(0.513726, 0.513726, 0.513726, 1)
+tonemap_mode = 2
+tonemap_exposure = 0.7
+tonemap_white = 1.2
+
+[node name="Root" type="Node3D"]
+
+[node name="System" type="Node" parent="."]
+
+[node name="SceneManager" type="Node" parent="System" node_paths=PackedStringArray("current_scene", "root")]
+script = ExtResource("1_1jvps")
+current_scene = NodePath("../../GoshaScene")
+root = NodePath("../..")
+gosha_scene = ExtResource("10_uyhf2")
+collection_scene = ExtResource("7_gcs4k")
+model_view_scene = ExtResource("6_ntjbn")
+
+[node name="DataLoader" type="Node" parent="System"]
+script = ExtResource("8_716ix")
+models_data = ExtResource("6_sbflh")
+user_data = ExtResource("7_xareo")
+
+[node name="World" type="Node" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="World"]
+transform = Transform3D(0.998482, -0.0549637, -0.00349736, 0.0537942, 0.959681, 0.275896, -0.0118079, -0.275665, 0.961181, 0, 0, 0.191417)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="World"]
+environment = SubResource("Environment_fx71p")
+
+[node name="Background" parent="World" instance=ExtResource("1_5m0vf")]
+layer = -10
+
+[node name="GoshaScene" parent="." instance=ExtResource("10_uyhf2")]

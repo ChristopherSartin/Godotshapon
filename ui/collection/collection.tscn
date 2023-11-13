@@ -1,0 +1,81 @@
+[gd_scene load_steps=7 format=3 uid="uid://cs0u05xrcbgen"]
+
+[ext_resource type="Script" path="res://ui/collection/collection.gd" id="1_emynl"]
+[ext_resource type="Texture2D" uid="uid://bluu31wlkoaem" path="res://ui/collection/DialogueBox.png" id="2_rnhwa"]
+[ext_resource type="Resource" uid="uid://by5fsewdebbk4" path="res://systems/custom_resource/models_data.tres" id="2_weyea"]
+[ext_resource type="PackedScene" uid="uid://d2n45h65ejrft" path="res://ui/collection/list_item/collection_item.tscn" id="3_xhrib"]
+[ext_resource type="Resource" uid="uid://dm2105dedsdyp" path="res://systems/custom_resource/user_data_container.tres" id="4_h4pnn"]
+[ext_resource type="Script" path="res://systems/emit.gd" id="6_mwxoc"]
+
+[node name="Collection" type="Control" node_paths=PackedStringArray("element_container")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_emynl")
+models_list = ExtResource("2_weyea")
+element = ExtResource("3_xhrib")
+element_container = NodePath("MarginContainer/MarginContainer/ScrollContainer/VFlowContainer")
+user_data = ExtResource("4_h4pnn")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer"]
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 2
+texture = ExtResource("2_rnhwa")
+patch_margin_left = 100
+patch_margin_top = 100
+patch_margin_right = 100
+patch_margin_bottom = 100
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+vertical_scroll_mode = 0
+
+[node name="VFlowContainer" type="VFlowContainer" parent="MarginContainer/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -160.0
+offset_bottom = 160.0
+grow_horizontal = 0
+mouse_filter = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="BackButton" type="Button" parent="MarginContainer2"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+text = "Back"
+script = ExtResource("6_mwxoc")
+signal_name = "move_to_gosha_scene"
+
+[connection signal="button_down" from="MarginContainer2/BackButton" to="MarginContainer2/BackButton" method="emit"]

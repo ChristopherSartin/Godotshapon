@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://klkiis0w50r2"]
+
+[ext_resource type="Script" path="res://prefabs/model_viewer/model_viewer.gd" id="1_fdwsj"]
+[ext_resource type="Script" path="res://utility/model_json_formatter.gd" id="1_h7pfv"]
+[ext_resource type="PackedScene" uid="uid://prha0mhxcurc" path="res://assets/models/002/GoshaponCapsule.gltf" id="2_7yygs"]
+[ext_resource type="PackedScene" uid="uid://cwgbujyiokav3" path="res://assets/models/004/Christopher.gltf" id="3_ffyfs"]
+
+[node name="Root" type="Node3D" node_paths=PackedStringArray("model_adjustment_node")]
+script = ExtResource("1_h7pfv")
+model_adjustment_node = NodePath("ModelViewer/ModelContainer/ModelAdjustementNode")
+model_path = "res://assets/models/004"
+file_name = "Christopher.gltf"
+icon_name = "christopher_icon.png"
+creation_date = "N/A"
+obj_name = "Christopher"
+obj_description = "Christopher as a 3D model! It looks nothing like him..."
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="ModelViewer" type="Node3D" parent="." node_paths=PackedStringArray("camera", "model", "model_container")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, -0.15)
+script = ExtResource("1_fdwsj")
+camera = NodePath("../Camera3D")
+model = NodePath("../ModelSizingReference")
+model_container = NodePath("ModelContainer")
+
+[node name="ModelContainer" type="Node3D" parent="ModelViewer"]
+
+[node name="ModelAdjustementNode" type="Node3D" parent="ModelViewer/ModelContainer"]
+transform = Transform3D(0.03, -1.04636e-17, 1.04636e-17, 1.04636e-17, 0.03, -1.04636e-17, -1.04636e-17, 1.04636e-17, 0.03, 2.08165e-12, -0.0269307, 0)
+
+[node name="Christopher" parent="ModelViewer/ModelContainer/ModelAdjustementNode" instance=ExtResource("3_ffyfs")]
+
+[node name="ModelSizingReference" parent="." instance=ExtResource("2_7yygs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, -0.15)

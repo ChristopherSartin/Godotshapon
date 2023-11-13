@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfc7gylfon0ie"]
+
+[ext_resource type="PackedScene" uid="uid://bmvgg2xotygsd" path="res://assets/models/001/GoshaponMachine.gltf" id="1_v0dvg"]
+
+[node name="GoshaponMachine" instance=ExtResource("1_v0dvg")]
